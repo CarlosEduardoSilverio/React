@@ -1,0 +1,25 @@
+.fonte{
+    color: darkgreen;
+
+    font-size: 20px;
+}
+
+.container{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mr{
+    margin-right: 2%;
+}
+
+.tamanho{
+    height: 500px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}

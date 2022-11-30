@@ -38,7 +38,7 @@ function Login(){
         e.preventDefault();
 
         try{
-            const resposta = await api.post(`/usuarios/logar`, userLogin)
+            const resposta = await api.post(`/auth/logar`, userLogin)
             setToken(resposta.data.token)
 
             alert('Usuário logado com sucesso.')

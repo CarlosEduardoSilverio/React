@@ -1,0 +1,20 @@
+.textos1{
+    font-weight: bold;
+}
+
+.imagem{
+    background-image: url(https://i.kym-cdn.com/entries/icons/facebook/000/021/290/bounsa.jpg);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 115vh;
+    background-size: cover;
+    background-position: center
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.Info{
+    background-color: red;
+}

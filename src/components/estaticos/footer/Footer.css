@@ -1,0 +1,21 @@
+.box1{
+    background-color: #c1dec3;
+    height: 120px;
+}
+
+.box2{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,47,33,1) 0%, rgba(14,62,36,1) 2%, rgba(5,113,30,1) 35%, rgba(18,111,36,1) 47%, rgba(19,131,36,1) 65%, rgba(20,108,15,1) 74%, rgba(21,157,36,1) 89%, rgba(15,152,26,1) 100%);    height: 60px;
+}
+
+.redes{
+    font-size: 60px !important;
+    color: white;
+}
+
+.textos{
+    color: white;
+}
+
+.LogosTamahoF{
+    height: 50px;
+}

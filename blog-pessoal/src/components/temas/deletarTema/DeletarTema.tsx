@@ -3,13 +3,73 @@ import {Card, CardActions, CardContent, Button, Typography} from '@material-ui/c
 import {Box} from '@mui/material';
 import './DeletarTema.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
-
+import { buscaId, deleteId } from '../../../service/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarTema() {
-  
-          
+  let navigate = useNavigate();
+  const { id } = useParams<{id: string}>()
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+  const [tema, setTema] = useState<Tema>()
+
+  useEffect(() => {
+    if(token == ''){
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+        });
+      navigate('/login')
+    }
+  }, [token])
+
+  useEffect(() => {
+    if(id !== undefined) {
+      findById(id)
+    }
+  }, [id])
+
+  async function findById(id: string){
+    buscaId(`/tema/${id}`, setTema,{
+        headers: {
+            'Authorization': token
+        }
+    })
+  }
+
+  async function sim() {
+    navigate('/temas')
+    deleteId(`/tema/${id}`, {
+      headers: {
+        'Authorization': token
+      }
+    })
+    toast.success('Tema deletado com sucesso', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: "colored",
+      progress: undefined,
+      });
+  }
+
+  async function nao() {
+    navigate('/temas')
+  }
+
   return (
     <>
       <Box m={2}>
@@ -20,19 +80,19 @@ function DeletarTema() {
                 Deseja deletar o Tema:
               </Typography>
               <Typography color="textSecondary">
-                tema
+              {tema?.descricao}
               </Typography>
             </Box>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
               <Box mx={2}>
-                <Button variant="contained" className="marginLeft" size='large' color="primary">
+                <Button onClick={sim} variant="contained" className="marginLeft" size='large' color="primary">
                   Sim
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button variant="contained" size='large' color="secondary">
+                <Button onClick={nao} variant="contained" size='large' color="secondary">
                   Não
                 </Button>
               </Box>

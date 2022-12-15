@@ -6,3 +6,10 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.center{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}

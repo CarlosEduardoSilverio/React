@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import  './Home.css'
-import {Grid, Button, Typography} from '@material-ui/core'
+import {Grid, Button, Typography, Divider} from '@material-ui/core'
 import {Box} from '@mui/material'
 import TabPostagem from "../../components/postagens/tabpostagem/TabPostagem";
 import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
@@ -33,11 +33,26 @@ function Home(){
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Button variant="outlined" className='botao TextoH'>Ver Postagens</Button>
+                        <Button variant="outlined" className='botao'>Ver Postagens</Button>
                     </Box>
                 </Grid>
-                <Grid xs={12} className='postagens'>
+                <Grid xs={12} className='postagens '>
                     <TabPostagem />
+                </Grid> 
+            </Grid>
+            <Divider />
+            <Grid className='caixa'>
+                <Box>
+                    <Typography color="textPrimary" align="center">Sobre mim</Typography>
+                </Box>
+                <Grid>
+                    <Box>
+                        <Typography>Animais que eu gosto</Typography>
+                    </Box>
+                    <Box>
+                        <Typography color="textPrimary">Pomba Apunhalada</Typography>
+                    <img src="https://i.pinimg.com/474x/1a/97/23/1a9723574db948f03a4a8e6470fc658a.jpg" alt='Pomba Apunhalada'/>
+                    </Box>
                 </Grid>
             </Grid>
         </>

@@ -1,3 +1,11 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.TabCor{
+    background-color:#FF6F00;
+}
+
+.TabLCor{
+    color: rgb(0, 0, 0);
+}

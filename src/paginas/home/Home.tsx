@@ -19,7 +19,7 @@ function Home(){
           alert("Você precisa estar logado")
           navigate("/login")
   
-      }
+      } 
   }, [token])
     return(
         <>
